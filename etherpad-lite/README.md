@@ -1,10 +1,10 @@
 # A really-real time collaborative word processor for the web
-![alt text](http://i.imgur.com/zYrGkg3.gif "Etherpad in action on PrimaryPad")
+![alt text](https://i.imgur.com/zYrGkg3.gif "Etherpad in action on PrimaryPad")
 
 # About
 Etherpad is a really-real time collaborative editor maintained by the Etherpad Community.
 
-Etherpad is written in Javascript(99.9%) on both the server and client so it's easy for developers to maintain and add new features.  Because of this Etherpad has tons of customizations that you can leverage.
+Etherpad is written in JavaScript (99.9%) on both the server and client so it's easy for developers to maintain and add new features.  Because of this Etherpad has tons of customizations that you can leverage.
 
 Etherpad is designed to be easily embeddable and provides a [HTTP API](https://github.com/ether/etherpad-lite/wiki/HTTP-API)
 that allows your web application to manage pads, users and groups. It is recommended to use the [available client implementations](https://github.com/ether/etherpad-lite/wiki/HTTP-API-client-libraries) in order to interact with this API. 
@@ -22,7 +22,7 @@ Also, check out the **[FAQ](https://github.com/ether/etherpad-lite/wiki/FAQ)**, 
 
 # Installation
 
-Etherpad works with node v0.10+ and io.js.
+Etherpad works with node v0.10+ (except 6.0 and 6.1).
 
 ## Windows
 
@@ -58,7 +58,7 @@ If cloning to a subdirectory within another project, you may need to do the foll
 You'll need gzip, git, curl, libssl develop libraries, python and gcc.  
 - *For Debian/Ubuntu*: `apt-get install gzip git curl python libssl-dev pkg-config build-essential`  
 - *For Fedora/CentOS*: `yum install gzip git curl python openssl-devel && yum groupinstall "Development Tools"`
-- *For FreeBSD*: `portinstall node, npm, git (optional)`
+- *For FreeBSD*: `portinstall node, npm, curl, git (optional)`
 
 Additionally, you'll need [node.js](http://nodejs.org) installed, Ideally the latest stable version, we recommend installing/compiling nodejs from source (avoiding apt).
 
@@ -117,9 +117,9 @@ Join the [mailinglist](http://groups.google.com/group/etherpad-lite-dev) and mak
 * [async-stacktrace](https://github.com/Pita/async-stacktrace) "Improves node.js stacktraces and makes it easier to handle errors"
 
 # Donate!
-* [Flattr] (http://flattr.com/thing/71378/Etherpad-Foundation)
+* [Flattr](http://flattr.com/thing/71378/Etherpad-Foundation)
 * Paypal - Press the donate button on [etherpad.org](http://etherpad.org)
-* [Bitcoin] (https://coinbase.com/checkouts/1e572bf8a82e4663499f7f1f66c2d15a)
+* [Bitcoin](https://coinbase.com/checkouts/1e572bf8a82e4663499f7f1f66c2d15a)
 
 # License
 [Apache License v2](http://www.apache.org/licenses/LICENSE-2.0.html)

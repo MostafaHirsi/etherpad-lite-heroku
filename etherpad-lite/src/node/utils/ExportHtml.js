@@ -19,8 +19,10 @@ var async = require("async");
 var Changeset = require("ep_etherpad-lite/static/js/Changeset");
 var padManager = require("../db/PadManager");
 var ERR = require("async-stacktrace");
+var _ = require('underscore');
 var Security = require('ep_etherpad-lite/static/js/security');
 var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
+var eejs = require('ep_etherpad-lite/node/eejs');
 var _analyzeLine = require('./ExportHelper')._analyzeLine;
 var _encodeWhitespace = require('./ExportHelper')._encodeWhitespace;
 
@@ -77,9 +79,18 @@ function getHTMLFromAtext(pad, atext, authorColors)
   var tags = ['h1', 'h2', 'strong', 'em', 'u', 's'];
   var props = ['heading1', 'heading2', 'bold', 'italic', 'underline', 'strikethrough'];
 
+  // prepare tags stored as ['tag', true] to be exported
   hooks.aCallAll("exportHtmlAdditionalTags", pad, function(err, newProps){
     newProps.forEach(function (propName, i){
       tags.push(propName);
+      props.push(propName);
+    });
+  });
+  // prepare tags stored as ['tag', 'value'] to be exported. This will generate HTML
+  // with tags like <span data-tag="value">
+  hooks.aCallAll("exportHtmlAdditionalTagsWithData", pad, function(err, newProps){
+    newProps.forEach(function (propName, i){
+      tags.push('span data-' + propName[0] + '="' + propName[1] + '"');
       props.push(propName);
     });
   });
@@ -115,8 +126,8 @@ function getHTMLFromAtext(pad, atext, authorColors)
         var newLength = props.push(propName);
         anumMap[a] = newLength -1;
 
-        css+=".removed {text-decoration: line-through; " + 
-             "-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)'; "+ 
+        css+=".removed {text-decoration: line-through; " +
+             "-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)'; "+
              "filter: alpha(opacity=80); "+
              "opacity: 0.8; "+
              "}\n";
@@ -130,7 +141,13 @@ function getHTMLFromAtext(pad, atext, authorColors)
   // this pad, and if yes puts its attrib id->props value into anumMap
   props.forEach(function (propName, i)
   {
-    var propTrueNum = apool.putAttrib([propName, true], true);
+    var attrib = [propName, true];
+    if (_.isArray(propName)) {
+      // propName can be in the form of ['color', 'red'],
+      // see hook exportHtmlAdditionalTagsWithData
+      attrib = propName;
+    }
+    var propTrueNum = apool.putAttrib(attrib, true);
     if (propTrueNum >= 0)
     {
       anumMap[propTrueNum] = i;
@@ -154,6 +171,12 @@ function getHTMLFromAtext(pad, atext, authorColors)
 
       var property = props[i];
 
+      // we are not insterested on properties in the form of ['color', 'red'],
+      // see hook exportHtmlAdditionalTagsWithData
+      if (_.isArray(property)) {
+        return false;
+      }
+
       if(property.substr(0,6) === "author"){
         return stripDotFromAuthorID(property);
       }
@@ -163,6 +186,13 @@ function getHTMLFromAtext(pad, atext, authorColors)
       }
 
       return false;
+    }
+
+    // tags added by exportHtmlAdditionalTagsWithData will be exported as <span> with
+    // data attributes
+    function isSpanWithData(i){
+      var property = props[i];
+      return _.isArray(property);
     }
 
     function emitOpenTag(i)
@@ -186,8 +216,9 @@ function getHTMLFromAtext(pad, atext, authorColors)
     {
       openTags.shift();
       var spanClass = getSpanClassFor(i);
+      var spanWithData = isSpanWithData(i);
 
-      if(spanClass){
+      if(spanClass || spanWithData){
         assem.append('</span>');
       } else {
         assem.append('</');
@@ -263,7 +294,7 @@ function getHTMLFromAtext(pad, atext, authorColors)
 
         var s = taker.take(chars);
 
-        //removes the characters with the code 12. Don't know where they come 
+        //removes the characters with the code 12. Don't know where they come
         //from but they break the abiword parser and are completly useless
         s = s.replace(String.fromCharCode(12), "");
 
@@ -377,7 +408,7 @@ function getHTMLFromAtext(pad, atext, authorColors)
           pieces.push('<br><br>');
         }
       }*/
-      else//means we are getting closer to the lowest level of indentation or are at the same level 
+      else//means we are getting closer to the lowest level of indentation or are at the same level
       {
         var toClose = lists.length > 0 ? listLevels[listLevels.length - 2] - line.listLevel : 0
         if( toClose > 0){
@@ -416,7 +447,8 @@ function getHTMLFromAtext(pad, atext, authorColors)
         lineContent: lineContent,
         apool: apool,
         attribLine: attribLines[i],
-        text: textLines[i]
+        text: textLines[i],
+        padId: pad.id
       }
 
       var lineContentFromHook = hooks.callAllStr("getLineHTMLForExport", context, " ", " ", "");
@@ -431,7 +463,7 @@ function getHTMLFromAtext(pad, atext, authorColors)
       }
     }
   }
-  
+
   for (var k = lists.length - 1; k >= 0; k--)
   {
     if(lists[k][1] == "number")
@@ -447,7 +479,7 @@ function getHTMLFromAtext(pad, atext, authorColors)
   return pieces.join('');
 }
 
-exports.getPadHTMLDocument = function (padId, revNum, noDocType, callback)
+exports.getPadHTMLDocument = function (padId, revNum, callback)
 {
   padManager.getPad(padId, function (err, pad)
   {
@@ -459,109 +491,16 @@ exports.getPadHTMLDocument = function (padId, revNum, noDocType, callback)
       stylesForExport.forEach(function(css){
         stylesForExportCSS += css;
       });
-      // Core inclusion of head etc.
-      var head = 
-        (noDocType ? '' : '<!doctype html>\n') + 
-        '<html lang="en">\n' + (noDocType ? '' : '<head>\n' + 
-          '<title>' + Security.escapeHTML(padId) + '</title>\n' +
-          '<meta charset="utf-8">\n' + 
-          '<style> * { font-family: arial, sans-serif;\n' + 
-            'font-size: 13px;\n' + 
-            'line-height: 17px; }' + 
-            'ul.indent { list-style-type: none; }' +
-
-            'ol { list-style-type: none; padding-left:0;}' +
-            'body > ol { counter-reset: first second third fourth fifth sixth seventh eigth ninth tenth eleventh twelth thirteenth fourteenth fifteenth sixteenth; }' +
-            'ol > li:before {' +
-            'content: counter(first) ". " ;'+
-            'counter-increment: first;}' +
-
-            'ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) ". " ;'+
-            'counter-increment: second;}' +
-
-            'ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) ". ";'+
-            'counter-increment: third;}' +
-
-            'ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) ". ";'+
-            'counter-increment: fourth;}' +
-
-            'ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) ". ";'+
-            'counter-increment: fifth;}' +
-
-            'ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) ". ";'+
-            'counter-increment: sixth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) ". ";'+
-            'counter-increment: seventh;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) ". ";'+
-            'counter-increment: eigth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) "." counter(ninth) ". ";'+
-            'counter-increment: ninth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) "." counter(ninth) "." counter(tenth) ". ";'+
-            'counter-increment: tenth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) "." counter(ninth) "." counter(tenth) "." counter(eleventh) ". ";'+
-            'counter-increment: eleventh;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) "." counter(ninth) "." counter(tenth) "." counter(eleventh) "." counter(twelth) ". ";'+
-            'counter-increment: twelth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) "." counter(ninth) "." counter(tenth) "." counter(eleventh) "." counter(twelth) "." counter(thirteenth) ". ";'+
-            'counter-increment: thirteenth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "." counter(eigth) "." counter(ninth) "." counter(tenth) "." counter(eleventh) "." counter(twelth) "." counter(thirteenth) "." counter(fourteenth) ". ";'+
-            'counter-increment: fourteenth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "."  counter(eigth) "."  counter(ninth) "."  counter(tenth) "."  counter(eleventh) "."  counter(twelth) "."  counter(thirteenth) "."  counter(fourteenth) "." counter(fifteenth) ". ";'+
-            'counter-increment: fifteenth;}' +
-
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > li:before {' +
-            'content: counter(first) "." counter(second) "." counter(third) "." counter(fourth) "." counter(fifth) "." counter(sixth) "." counter(seventh) "."  counter(eigth) "."  counter(ninth) "."  counter(tenth) "."  counter(eleventh) "."  counter(twelth) "."  counter(thirteenth) "."  counter(fourteenth) "."  counter(fifteenth) "."  counter(sixthteenth) ". ";'+
-            'counter-increment: sixthteenth;}' +
-
-            'ol{ text-indent: 0px; }' +
-            'ol > ol{ text-indent: 10px; }' +
-            'ol > ol > ol{ text-indent: 20px; }' +
-            'ol > ol > ol > ol{ text-indent: 30px; }' +
-            'ol > ol > ol > ol > ol{ text-indent: 40px; }' +
-            'ol > ol > ol > ol > ol > ol{ text-indent: 50px; }' +
-            'ol > ol > ol > ol > ol > ol > ol{ text-indent: 60px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 70px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 80px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 90px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 100px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 110px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol { text-indent: 120px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 130px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 140px; }' +
-            'ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol > ol{ text-indent: 150px; }' +
-
-            stylesForExportCSS + 
-            '</style>\n' + '</head>\n') + 
-        '<body>';
-      var foot = '</body>\n</html>\n';
 
       getPadHTML(pad, revNum, function (err, html)
       {
         if(ERR(err, callback)) return;
-        callback(null, head + html + foot);
+        var exportedDoc = eejs.require("ep_etherpad-lite/templates/export_html.html", {
+          body: html,
+          padId: Security.escapeHTML(padId),
+          extraCSS: stylesForExportCSS
+        });
+        callback(null, exportedDoc);
       });
     });
   });

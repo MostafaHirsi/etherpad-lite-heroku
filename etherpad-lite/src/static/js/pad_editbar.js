@@ -185,9 +185,31 @@ var padeditbar = (function()
       this.commands[cmd] = callback;
       return this;
     },
+    calculateEditbarHeight: function() {
+      // if we're on timeslider, there is nothing on editbar, so we just use zero
+      var onTimeslider = $('.menu_left').length === 0;
+      if (onTimeslider) return 0;
+
+      // if editbar has both menu left and right, its height must be
+      // the max between the height of these two parts
+      var leftMenuPosition = $('.menu_left').offset().top;
+      var rightMenuPosition = $('.menu_right').offset().top;
+      var editbarHasMenuLeftAndRight = (leftMenuPosition === rightMenuPosition);
+
+      var height;
+      if (editbarHasMenuLeftAndRight) {
+        height = Math.max($('.menu_left').height(), $('.menu_right').height());
+      }
+      else {
+        height = $('.menu_left').height();
+      }
+
+      return height;
+    },
     redrawHeight: function(){
-      var editbarHeight = $('.menu_left').height() + 1 + "px";
-      var containerTop = $('.menu_left').height() + 6 + "px";
+      var minimunEditbarHeight = self.calculateEditbarHeight();
+      var editbarHeight = minimunEditbarHeight + 1 + "px";
+      var containerTop = minimunEditbarHeight + 6 + "px";
       $('#editbar').css("height", editbarHeight);
 
       $('#editorcontainer').css("top", containerTop);
@@ -220,9 +242,9 @@ var padeditbar = (function()
       });
     },
     registerAceCommand: function (cmd, callback) {
-      this.registerCommand(cmd, function (cmd, ace) {
+      this.registerCommand(cmd, function (cmd, ace, item) {
         ace.callWithAce(function (ace) {
-          callback(cmd, ace);
+          callback(cmd, ace, item);
         }, cmd, true);
       });
     },
@@ -237,18 +259,25 @@ var padeditbar = (function()
       // hide all modules and remove highlighting of all buttons
       if(moduleName == "none")
       {
-        var returned = false
+        var returned = false;
         for(var i=0;i<self.dropdowns.length;i++)
         {
+          var thisModuleName = self.dropdowns[i];
+
           //skip the userlist
-          if(self.dropdowns[i] == "users")
+          if(thisModuleName == "users")
             continue;
 
-          var module = $("#" + self.dropdowns[i]);
+          var module = $("#" + thisModuleName);
+
+          //skip any "force reconnect" message
+          var isAForceReconnectMessage = module.find('button#forcereconnect:visible').length > 0;
+          if(isAForceReconnectMessage)
+            continue;
 
           if(module.css('display') != "none")
           {
-            $("li[data-key=" + self.dropdowns[i] + "] > a").removeClass("selected");
+            $("li[data-key=" + thisModuleName + "] > a").removeClass("selected");
             module.slideUp("fast", cb);
             returned = true;
           }
@@ -261,16 +290,17 @@ var padeditbar = (function()
         // respectively add highlighting to the corresponding button
         for(var i=0;i<self.dropdowns.length;i++)
         {
-          var module = $("#" + self.dropdowns[i]);
+          var thisModuleName = self.dropdowns[i];
+          var module = $("#" + thisModuleName);
 
           if(module.css('display') != "none")
           {
-            $("li[data-key=" + self.dropdowns[i] + "] > a").removeClass("selected");
+            $("li[data-key=" + thisModuleName + "] > a").removeClass("selected");
             module.slideUp("fast");
           }
-          else if(self.dropdowns[i]==moduleName)
+          else if(thisModuleName==moduleName)
           {
-            $("li[data-key=" + self.dropdowns[i] + "] > a").addClass("selected");
+            $("li[data-key=" + thisModuleName + "] > a").addClass("selected");
             module.slideDown("fast", cb);
           }
         }
@@ -293,13 +323,13 @@ var padeditbar = (function()
       {
         var basePath = document.location.href.substring(0, document.location.href.indexOf("/p/"));
         var readonlyLink = basePath + "/p/" + clientVars.readOnlyId;
-        $('#embedinput').val("<iframe name='embed_readonly' src='" + readonlyLink + "?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false' width=600 height=400></iframe>");
+        $('#embedinput').val('<iframe name="embed_readonly" src="' + readonlyLink + '?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false" width=600 height=400></iframe>');
         $('#linkinput').val(readonlyLink);
       }
       else
       {
         var padurl = window.location.href.split("?")[0];
-        $('#embedinput').val("<iframe name='embed_readwrite' src='" + padurl + "?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false' width=600 height=400></iframe>");
+        $('#embedinput').val('<iframe name="embed_readwrite" src="' + padurl + '?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false" width=600 height=400></iframe>');
         $('#linkinput').val(padurl);
       }
     }

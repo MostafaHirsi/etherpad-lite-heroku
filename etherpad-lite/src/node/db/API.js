@@ -28,6 +28,7 @@ var authorManager = require("./AuthorManager");
 var sessionManager = require("./SessionManager");
 var async = require("async");
 var exportHtml = require("../utils/ExportHtml");
+var exportTxt = require("../utils/ExportTxt");
 var importHtml = require("../utils/ImportHtml");
 var cleanText = require("./Pad").cleanText;
 var PadDiff = require("../utils/padDiff");
@@ -271,7 +272,8 @@ exports.getText = function(padID, rev, callback)
     //the client wants the latest text, lets return it to him
     else
     {
-      callback(null, {"text": pad.text()});
+      var padText = exportTxt.getTXTFromAtext(pad, pad.atext);
+      callback(null, {"text": padText});
     }
   });
 }
@@ -306,6 +308,38 @@ exports.setText = function(padID, text, callback)
     padMessageHandler.updatePadClients(pad, callback);
   });
 }
+
+/**
+appendText(padID, text) appends text to a pad
+
+Example returns:
+
+{code: 0, message:"ok", data: null}
+{code: 1, message:"padID does not exist", data: null}
+{code: 1, message:"text too long", data: null}
+*/
+exports.appendText = function(padID, text, callback)
+{
+  //text is required
+  if(typeof text != "string")
+  {
+    callback(new customError("text is no string","apierror"));
+    return;
+  }
+
+  //get the pad
+  getPadSafe(padID, true, function(err, pad)
+  {
+    if(ERR(err, callback)) return;
+
+    pad.appendText(text);
+
+    //update the clients on the pad
+    padMessageHandler.updatePadClients(pad, callback);
+  });
+};
+
+
 
 /**
 getHTML(padID, [rev]) returns the html of a pad 
@@ -473,9 +507,9 @@ exports.getChatHistory = function(padID, start, end, callback)
     end = pad.chatHead;
     }
     
-    if(start >= chatHead && chatHead > 0)
+    if(start > chatHead)
     {
-      callback(new customError("start is higher or equal to the current chatHead","apierror"));
+      callback(new customError("start is higher than the current chatHead","apierror"));
       return;
     }
     if(end > chatHead)
@@ -499,7 +533,7 @@ appendChatMessage(padID, text, authorID, time), creates a chat message for the p
 
 Example returns:
 
-{code: 0, message:"ok", data: null
+{code: 0, message:"ok", data: null}
 {code: 1, message:"padID does not exist", data: null}
 */
 exports.appendChatMessage = function(padID, text, authorID, time, callback)
@@ -510,15 +544,19 @@ exports.appendChatMessage = function(padID, text, authorID, time, callback)
     callback(new customError("text is no string","apierror"));
     return;
   }
-
-  //get the pad
-  getPadSafe(padID, true, function(err, pad)
+  
+  // if time is not an integer value
+  if(time === undefined || !is_int(time))
   {
-    if(ERR(err, callback)) return;
-    
-    pad.appendChatMessage(text, authorID, parseInt(time));
-    callback();
-  });
+    // set time to current timestamp
+    time = new Date().getTime();
+  }
+
+  var padMessage = require("ep_etherpad-lite/node/handler/PadMessageHandler.js");
+  // save chat message to database and send message to all connected clients
+  padMessage.sendChatMessageToPadClients(parseInt(time), authorID, text, padID);
+
+  callback();
 }
 
 /*****************/
