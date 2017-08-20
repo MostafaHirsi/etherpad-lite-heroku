@@ -80,7 +80,7 @@ domline.createDomLine = function(nonEmpty, doesWrap, optBrowser, optDocument)
   }
 
   var html = [];
-  var preHtml = '',
+  var preHtml = '', 
   postHtml = '';
   var curHTML = null;
 
@@ -193,8 +193,7 @@ domline.createDomLine = function(nonEmpty, doesWrap, optBrowser, optDocument)
     {
       if (href)
       {
-        urn_schemes = new RegExp("^(about|geo|mailto|tel):");
-        if(!~href.indexOf("://") && !urn_schemes.test(href)) // if the url doesn't include a protocol prefix, assume http
+        if(!~href.indexOf("://") && !~href.indexOf("mailto:")) // if the url doesn't include a protocol prefix, assume http
         {
           href = "http://"+href;
         }

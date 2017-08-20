@@ -71,9 +71,8 @@ function makeContentCollector(collectStyles, abrowser, apool, domInterface, clas
     },
     nodeAttr: function(n, a)
     {
-      if(n.getAttribute != null) return n.getAttribute(a);
-      if(n.attribs != null) return n.attribs[a];
-      return null;
+      if(n.getAttribute == null) return null;
+      return n.getAttribute(a);
     },
     optNodeInnerHTML: function(n)
     {
@@ -100,7 +99,7 @@ function makeContentCollector(collectStyles, abrowser, apool, domInterface, clas
   function textify(str)
   {
     return sanitizeUnicode(
-    str.replace(/(\n | \n)/g, ' ').replace(/[\n\r ]/g, ' ').replace(/\xa0/g, ' ').replace(/\t/g, '        '));
+    str.replace(/\n/g, '').replace(/[\n\r ]/g, ' ').replace(/\xa0/g, ' ').replace(/\t/g, '        '));
   }
 
   function getAssoc(node, name)
@@ -517,7 +516,7 @@ function makeContentCollector(collectStyles, abrowser, apool, domInterface, clas
       else if (!isEmpty)
       {
         var styl = dom.nodeAttr(node, "style");
-        var cls = dom.nodeAttr(node, "class");
+        var cls = dom.nodeProp(node, "className");
         var isPre = (tname == "pre");
         if ((!isPre) && abrowser.safari)
         {

@@ -3,8 +3,7 @@
 		"authors": [
 			"Admresdeserv.",
 			"Jmg.cmdi",
-			"Papuass",
-			"Silraks"
+			"Papuass"
 		]
 	},
 	"pad.toolbar.bold.title": "Treknrakstā (CTRL + B)",
@@ -48,7 +47,6 @@
 	"pad.importExport.exportpdf": "PDF",
 	"pad.importExport.exportopen": "ODF (Open dokumenta formāts)",
 	"pad.modals.connected": "Pievienojies.",
-	"pad.modals.cancel": "Atcelt",
 	"pad.modals.userdup": "Atvērts citā logā",
 	"pad.modals.unauth": "Nav atļauts",
 	"pad.modals.looping.explanation": "Pastāv sakaru problēmas ar sinhronizācijas servera.",
@@ -62,7 +60,6 @@
 	"pad.share": "Koplietot šo pad",
 	"pad.share.readonly": "Tikai lasāms",
 	"pad.share.link": "Saite",
-	"pad.chat": "Čats",
 	"timeslider.toolbar.authors": "Autori:",
 	"timeslider.toolbar.authorsList": "Nav autoru",
 	"timeslider.toolbar.exportlink.title": "Eksportēt",
@@ -83,6 +80,5 @@
 	"pad.userlist.guest": "Viesis",
 	"pad.impexp.importbutton": "Importēt tūlīt",
 	"pad.impexp.importing": "Importē...",
-	"pad.impexp.uploadFailed": "Augšupielāde neizdevās, lūdzu, mēģiniet vēlreiz",
 	"pad.impexp.importfailed": "Imports neizdevās"
 }

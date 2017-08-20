@@ -1,8 +1,7 @@
 var assert = require('assert')
  supertest = require(__dirname+'/../../../../src/node_modules/supertest'),
         fs = require('fs'),
-  settings = require(__dirname+'/../../loadSettings').loadSettings(),
-       api = supertest('http://'+settings.ip+":"+settings.port),
+       api = supertest('http://localhost:9001');
       path = require('path');
 
 var filePath = path.join(__dirname, '../../../../APIKEY.txt');
@@ -156,7 +155,7 @@ describe('getAuthorName', function(){
   it('Gets the author name', function(done) {
     api.get(endPoint('getAuthorName')+"&authorID="+authorID)
     .expect(function(res){
-      if(res.body.code !== 0 || res.body.data !== "john") throw new Error("Unable to get Author Name from Author ID");
+      if(res.body.code !== 0 || !res.body.data === "john") throw new Error("Unable to get Author Name from Author ID");
     })
     .expect('Content-Type', /json/)
     .expect(200, done)

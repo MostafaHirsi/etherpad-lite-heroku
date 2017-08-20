@@ -30,13 +30,7 @@ exports.socketio = function (hook_name, args, cb) {
         }
         else
         {
-          //if showSettingsInAdminPage is set to false, then return NOT_ALLOWED in the result
-          if(settings.showSettingsInAdminPage === false) {
-            socket.emit("settings", {results:'NOT_ALLOWED'});
-          }
-          else {
-            socket.emit("settings", {results: data});
-          }
+          socket.emit("settings", {results: data});
         }
       });
     });

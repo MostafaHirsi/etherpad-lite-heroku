@@ -36,7 +36,6 @@
 
         <meta charset="utf-8">
         <meta name="robots" content="noindex, nofollow">
-        <meta name="referrer" content="no-referrer">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <link rel="shortcut icon" href="<%=settings.faviconPad%>">
 
@@ -64,12 +63,12 @@
 
             <ul class="menu_left" role="toolbar">
                 <% e.begin_block("editbarMenuLeft"); %>
-                <%- toolbar.menu(settings.toolbar.left, isReadOnly) %>
+                <%- toolbar.menu(settings.toolbar.left) %>
                 <% e.end_block(); %>
             </ul>
             <ul class="menu_right" role="toolbar">
                 <% e.begin_block("editbarMenuRight"); %>
-                <%- toolbar.menu(settings.toolbar.right, isReadOnly) %>
+                <%- toolbar.menu(settings.toolbar.right) %>
                 <% e.end_block(); %>
             </ul>
         </div>
@@ -101,7 +100,7 @@
         </div>
 
         <div id="editorcontainerbox">
-            <div id="editorcontainer" class="editorcontainer"></div>
+            <div id="editorcontainer"></div>
             <div id="editorloadingbox">
               <div id="passwordRequired">
                 <p data-l10n-id="pad.passwordRequired">You need a password to access this pad</p>
@@ -161,7 +160,6 @@
                             <select id="viewfontmenu">
                                 <option value="normal" data-l10n-id="pad.settings.fontType.normal"></option>
                                 <option value="monospace" data-l10n-id="pad.settings.fontType.monospaced"></option>
-                                <option value="montserrat" data-l10n-id="pad.settings.fontType.montserrat"></option>
                                 <option value="opendyslexic" data-l10n-id="pad.settings.fontType.opendyslexic"></option>
                                 <option value="comicsans" data-l10n-id="pad.settings.fontType.comicsans"></option>
                                 <option value="georgia" data-l10n-id="pad.settings.fontType.georgia"></option>
@@ -169,7 +167,6 @@
                                 <option value="lucida" data-l10n-id="pad.settings.fontType.lucida"></option>
                                 <option value="lucidasans" data-l10n-id="pad.settings.fontType.lucidasans"></option>
                                 <option value="palatino" data-l10n-id="pad.settings.fontType.palatino"></option>
-                                <option value="robotomono" data-l10n-id="pad.settings.fontType.robotomono"></option>
                                 <option value="tahoma" data-l10n-id="pad.settings.fontType.tahoma"></option>
                                 <option value="timesnewroman" data-l10n-id="pad.settings.fontType.timesnewroman"></option>
                                 <option value="trebuchet" data-l10n-id="pad.settings.fontType.trebuchet"></option>
@@ -251,12 +248,12 @@
                 <div class="userdup">
                   <h1 data-l10n-id="pad.modals.userdup"></h1>
                   <h2 data-l10n-id="pad.modals.userdup.explanation"></h2>
-                  <p id="defaulttext" data-l10n-id="pad.modals.userdup.advice"></p>
+                  <p data-l10n-id="pad.modals.userdup.advice"></p>
                   <button id="forcereconnect" data-l10n-id="pad.modals.forcereconnect"></button>
                 </div>
                 <div class="unauth">
                   <h1 data-l10n-id="pad.modals.unauth"></h1>
-                  <p id="defaulttext" data-l10n-id="pad.modals.unauth.explanation"></p>
+                  <p data-l10n-id="pad.modals.unauth.explanation"></p>
                   <button id="forcereconnect" data-l10n-id="pad.modals.forcereconnect"></button>
                 </div>
                 <div class="looping">
@@ -269,16 +266,16 @@
                   <h2 data-l10n-id="pad.modals.initsocketfail.explanation"></h2>
                   <p data-l10n-id="pad.modals.initsocketfail.cause"></p>
                 </div>
-                <div class="slowcommit with_reconnect_timer">
+                <div class="slowcommit">
                   <h1 data-l10n-id="pad.modals.disconnected"></h1>
                   <h2 data-l10n-id="pad.modals.slowcommit.explanation"></h2>
-                  <p id="defaulttext" data-l10n-id="pad.modals.slowcommit.cause"></p>
+                  <p data-l10n-id="pad.modals.slowcommit.cause"></p>
                   <button id="forcereconnect" data-l10n-id="pad.modals.forcereconnect"></button>
                 </div>
-                <div class="badChangeset with_reconnect_timer">
+                <div class="badChangeset">
                   <h1 data-l10n-id="pad.modals.disconnected"></h1>
                   <h2 data-l10n-id="pad.modals.badChangeset.explanation"></h2>
-                  <p id="defaulttext" data-l10n-id="pad.modals.badChangeset.cause"></p>
+                  <p data-l10n-id="pad.modals.badChangeset.cause"></p>
                   <button id="forcereconnect" data-l10n-id="pad.modals.forcereconnect"></button>
                 </div>
                 <div class="corruptPad">
@@ -290,11 +287,11 @@
                   <h1 data-l10n-id="pad.modals.deleted"></h1>
                   <p data-l10n-id="pad.modals.deleted.explanation"></p>
                 </div>
-                <div class="disconnected with_reconnect_timer">
+                <div class="disconnected">
                   <% e.begin_block("disconnected"); %>
                   <h1 data-l10n-id="pad.modals.disconnected"></h1>
                   <h2 data-l10n-id="pad.modals.disconnected.explanation"></h2>
-                  <p id="defaulttext" data-l10n-id="pad.modals.disconnected.cause"></p>
+                  <p data-l10n-id="pad.modals.disconnected.cause"></p>
                   <button id="forcereconnect" data-l10n-id="pad.modals.forcereconnect"></button>
                   <% e.end_block(); %>
                 </div>
@@ -353,21 +350,19 @@
 
         <% e.begin_block("scripts"); %>
         <script type="text/javascript">
-            // @license magnet:?xt=urn:btih:8e4f440f4c65981c5bf93c76d35135ba5064d8b7&dn=apache-2.0.txt
             (function() {
               // Display errors on page load to the user
               // (Gets overridden by padutils.setupGlobalExceptionHandler)
               var originalHandler = window.onerror;
               window.onerror = function(msg, url, line) {
                 var box   = document.getElementById('editorloadingbox');
-                box.innerHTML = '<p><b>An error occurred while loading the pad</b></p>'
+                box.innerHTML = '<p><b>An error occured while loading the pad</b></p>'
                               + '<p><b>'+msg+'</b> '
                               + '<small>in '+ url +' (line '+ line +')</small></p>';
                 // call original error handler
                 if(typeof(originalHandler) == 'function') originalHandler.call(null, arguments);
               };
             })();
-            // @license-end
         </script>
 
         <script type="text/javascript" src="../static/js/require-kernel.js"></script>
@@ -383,7 +378,6 @@
 
         <!-- Bootstrap page -->
         <script type="text/javascript">
-            // @license magnet:?xt=urn:btih:8e4f440f4c65981c5bf93c76d35135ba5064d8b7&dn=apache-2.0.txt
             var clientVars = {};
             (function () {
               var pathComponents = location.pathname.split('/');
@@ -396,7 +390,10 @@
               require.setGlobalKeyPath("require");
 
               $ = jQuery = require('ep_etherpad-lite/static/js/rjquery').jQuery; // Expose jQuery #HACK
-              browser = require('ep_etherpad-lite/static/js/browser');
+              browser = require('ep_etherpad-lite/static/js/browser').browser;
+              if ((!browser.msie) && (!(browser.mozilla && browser.version.indexOf("1.8.") == 0))) {
+                document.domain = document.domain; // for comet
+              }
 
               var plugins = require('ep_etherpad-lite/static/js/pluginfw/client_plugins');
               var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
@@ -421,8 +418,6 @@
               padeditbar = require('ep_etherpad-lite/static/js/pad_editbar').padeditbar;
               padimpexp = require('ep_etherpad-lite/static/js/pad_impexp').padimpexp;
             }());
-            // @license-end
         </script>
-        <div style="display:none"><a href="/javascript" data-jslicense="1">JavaScript license information</a></div>
         <% e.end_block(); %>
 </html>

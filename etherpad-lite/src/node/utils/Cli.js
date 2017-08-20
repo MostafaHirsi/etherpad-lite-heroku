@@ -34,10 +34,5 @@ for ( var i = 0; i < argv.length; i++ ) {
     exports.argv.settings = arg;
   }
 
-  // Override location of credentials.json file
-  if ( prevArg == '--credentials' ) {
-    exports.argv.credentials = arg;
-  }
-
   prevArg = arg;
 }

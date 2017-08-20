@@ -31,7 +31,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="referrer" content="no-referrer">
   <link rel="shortcut icon" href="<%=settings.faviconTimeslider%>">
   <% e.begin_block("timesliderStyles"); %>
   <link rel="stylesheet" href="../../static/css/pad.css">
@@ -69,7 +68,7 @@
             <button class="stepper" id="rightstep"></button>
           </div>
         </div>
-
+        
         <div id="overlay">
           <div id="overlay-inner">
             <!-- -->
@@ -231,28 +230,31 @@
 
 <!-- Bootstrap -->
 <script type="text/javascript" >
-  // @license magnet:?xt=urn:btih:8e4f440f4c65981c5bf93c76d35135ba5064d8b7&dn=apache-2.0.txt
   var clientVars = {};
-  var BroadcastSlider;
+  var BroadcastSlider;  
   (function () {
     var pathComponents = location.pathname.split('/');
-
+    
     // Strip 'p', the padname and 'timeslider' from the pathname and set as baseURL
     var baseURL = pathComponents.slice(0,pathComponents.length-3).join('/') + '/';
-
-
+    
+    
     require.setRootURI(baseURL + "javascripts/src");
     require.setLibraryURI(baseURL + "javascripts/lib");
     require.setGlobalKeyPath("require");
 
     $ = jQuery = require('ep_etherpad-lite/static/js/rjquery').jQuery; // Expose jQuery #HACK
-    browser = require('ep_etherpad-lite/static/js/browser');
+    browser = require('ep_etherpad-lite/static/js/browser').browser;
+
+    if ((!browser.msie) && (!(browser.mozilla && browser.version.indexOf("1.8.") == 0))) {
+      document.domain = document.domain; // for comet
+    }
 
     var plugins = require('ep_etherpad-lite/static/js/pluginfw/client_plugins');
     var socket = require('ep_etherpad-lite/static/js/timeslider').socket;
     BroadcastSlider = require('ep_etherpad-lite/static/js/timeslider').BroadcastSlider;
     plugins.baseURL = baseURL;
-
+    
     plugins.update(function () {
       var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
       hooks.plugins = plugins;
@@ -268,9 +270,8 @@
       padeditbar.init()
     });
   })();
-  // @license-end
 </script>
 <% e.end_block(); %>
-<div style="display:none"><a href="/javascript" data-jslicense="1">JavaScript license information</a></div>
 </body>
 </html>
+

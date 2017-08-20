@@ -6,7 +6,6 @@ var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
 var ueberStore = require('../../db/SessionStore');
 var stats = require('ep_etherpad-lite/node/stats');
 var sessionModule = require('express-session');
-var cookieParser = require('cookie-parser');
 
 //checks for basic http auth
 exports.basicAuth = function (req, res, next) {
@@ -77,7 +76,7 @@ exports.basicAuth = function (req, res, next) {
      Note that the process could stop already in step 3 with a redirect to login page.
 
   */
-
+ 
   authorize(function (ok) {
     if (ok) return next();
     authenticate(function (ok) {
@@ -116,13 +115,11 @@ exports.expressConfigure = function (hook_name, args, cb) {
 
   if (!exports.sessionStore) {
     exports.sessionStore = new ueberStore();
-    exports.secret = settings.sessionKey;
+    exports.secret = settings.sessionKey; // Isn't this being reset each time the server spawns?
   }
 
   args.app.sessionStore = exports.sessionStore;
-  args.app.use(sessionModule({secret: exports.secret, store: args.app.sessionStore, resave: true, saveUninitialized: true, name: 'express_sid', proxy: true, cookie: { secure: !!settings.ssl }}));
-
-  args.app.use(cookieParser(settings.sessionKey, {}));
+  args.app.use(sessionModule({secret: exports.secret, store: args.app.sessionStore, resave: true, saveUninitialized: true, name: 'express_sid' }));
 
   args.app.use(exports.basicAuth);
 }
