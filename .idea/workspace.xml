@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3481e1ea-7eaa-4859-9caa-1e493a591613" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitmodules" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -67,11 +68,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/etherpad-lite/bin/doc/node_modules" />
-    <handled-path value="$PROJECT_DIR$/etherpad-lite/node_modules" />
-    <handled-path value="$PROJECT_DIR$/etherpad-lite/src/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
@@ -199,12 +195,12 @@
       <updated>1503241854636</updated>
       <workItem from="1503241856673" duration="433000" />
       <workItem from="1503242564603" duration="373000" />
-      <workItem from="1503242963105" duration="3000" />
+      <workItem from="1503242963105" duration="143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="809000" />
+    <option name="totallyTimeSpent" value="949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
