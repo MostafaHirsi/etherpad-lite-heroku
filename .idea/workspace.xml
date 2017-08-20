@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3481e1ea-7eaa-4859-9caa-1e493a591613" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etherpad-lite" afterPath="$PROJECT_DIR$/etherpad-lite" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -69,7 +70,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/etherpad-lite/bin/doc/node_modules" />
     <handled-path value="$PROJECT_DIR$/etherpad-lite/node_modules" />
     <handled-path value="$PROJECT_DIR$/etherpad-lite/src/node_modules" />
   </component>
@@ -200,12 +200,12 @@
       <workItem from="1503241856673" duration="433000" />
       <workItem from="1503242564603" duration="373000" />
       <workItem from="1503242963105" duration="143000" />
-      <workItem from="1503243331387" duration="34000" />
+      <workItem from="1503243331387" duration="121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="983000" />
+    <option name="totallyTimeSpent" value="1070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
