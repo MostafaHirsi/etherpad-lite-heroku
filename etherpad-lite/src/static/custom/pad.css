@@ -35,7 +35,7 @@ button {
 
 .toolbar ul li {
     height: 45px;
-    width: 45px;
+    width: 80px;
     margin-top: 6px;
 }
 
@@ -71,4 +71,14 @@ button {
 #headings {
     padding: 12px !important;
     width: auto !important;
+}
+
+#font-size, #headings {
+    padding: 12px!important;
+    width: 65px;
+}
+
+#editorcontainer .page_view{
+    top:0px;
+    padding-top: 0px !important;
 }
