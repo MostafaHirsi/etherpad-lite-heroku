@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3481e1ea-7eaa-4859-9caa-1e493a591613" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etherpad-lite/var/dirty.db" afterPath="$PROJECT_DIR$/etherpad-lite/var/dirty.db" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -276,12 +275,12 @@
       <workItem from="1503243331387" duration="2386000" />
       <workItem from="1503256058619" duration="3000" />
       <workItem from="1503340850987" duration="270000" />
-      <workItem from="1503400945696" duration="2664000" />
+      <workItem from="1503400945696" duration="2833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6272000" />
+    <option name="totallyTimeSpent" value="6441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
