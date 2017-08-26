@@ -194,6 +194,10 @@
   },
   */
 
+  "ep_document_import_hook": {
+    "tool": ""
+  },
+
   /* The log level we are using, can be: DEBUG, INFO, WARN, ERROR */
   "loglevel": "INFO",
 
@@ -238,4 +242,5 @@
         }*/
       ]
     }
+
 }
