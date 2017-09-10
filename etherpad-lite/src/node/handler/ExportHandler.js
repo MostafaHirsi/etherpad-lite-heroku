@@ -31,13 +31,14 @@ var hooks = require("ep_etherpad-lite/static/js/pluginfw/hooks");
 var TidyHtml = require('../utils/TidyHtml');
 
 var convertor = null;
-
+ console.log(settings);
 //load abiword only if its enabled
 //if(settings.abiword != null)
 //  convertor = require("../utils/Abiword");
 
 // Use LibreOffice if an executable has been defined in the settings
 if(settings.soffice != null)
+ console.log('libreoffice should work');
   convertor = require("../utils/LibreOffice");
 
 var tempDirectory = "/tmp";
