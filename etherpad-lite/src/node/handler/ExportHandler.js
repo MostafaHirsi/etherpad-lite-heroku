@@ -32,8 +32,8 @@ var TidyHtml = require('../utils/TidyHtml');
 
 var convertor = null;
  console.log(settings);
-console.log(sofficeAvailable())
-console.log(abiwordAvailable())
+console.log('ONE: soffice : ' , settings.sofficeAvailable())
+console.log('TWO: abiword',settings.abiwordAvailable())
 //load abiword only if its enabled
 //if(settings.abiword != null)
 //  convertor = require("../utils/Abiword");
