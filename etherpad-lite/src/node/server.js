@@ -27,7 +27,7 @@ var log4js = require('log4js')
   ;
 
 log4js.replaceConsole();
-
+console.log("default log");
 stats.gauge('memoryUsage', function() {
   return process.memoryUsage().rss
 })
