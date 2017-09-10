@@ -44,6 +44,7 @@ function doConvertTask(task, callback) {
   async.series([
     // Generate a PDF file with LibreOffice
     function(callback) {
+      task.type = 'pdf';
       var soffice = spawn(settings.soffice, [
         '--headless',
         '--invisible',
