@@ -86,3 +86,18 @@ button {
     position: fixed;
     height: 100%;
 }
+
+@media only screen and (max-width: 1230px) {
+
+    #headings {
+        display: none !important;
+    }
+
+    #font-size {
+        display: none !important;
+    }
+
+    .toolbar ul.menu_left li:nth-last-child(4) {
+        display: none !important;
+    }
+}

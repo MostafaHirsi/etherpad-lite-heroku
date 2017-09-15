@@ -241,6 +241,13 @@
           }
         }*/
       ]
-    }
+    },
 
+
+  "ep_thumbnails": {
+    "css": "body { padding: 50px 55px!important; font-size: 16px; line-height: 25px; }",
+    "savePath": "./src/images/thumbnails/",
+    "windowSize": { "width": 800, "height": 800 },
+    "shotSize": { "width": 800, "height": 800 }
+  }
 }
