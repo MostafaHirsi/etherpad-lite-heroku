@@ -44,16 +44,24 @@ function doConvertTask(task, callback) {
   async.series([
     // Generate a PDF file with LibreOffice
     function(callback) {
-      task.type = 'pdf';
-      var soffice = spawn(settings.soffice, [
-        '--headless',
-        '--invisible',
-        '--nologo',
-        '--nolockcheck',
-        '--convert-to', task.type,
-        task.srcFile,
-        '--outdir', tmpDir
-      ]);
+      
+//      var soffice = spawn(settings.soffice, [
+//        '--headless',
+//        '--invisible',
+//        '--nologo',
+//        '--nolockcheck',
+//        '--convert-to', task.type,
+//        task.srcFile,
+//        '--outdir', tmpDir
+//      ]);
+
+
+
+
+
+      var soffice = spawn("/usr/bin/pandoc",[task.srcFile,"-s","-o",task.destFile]);
+    
+console.log(task);
 
       var stdoutBuffer = '';
 
@@ -82,7 +90,7 @@ function doConvertTask(task, callback) {
       var filename = path.basename(task.srcFile);
       var pdfFilename = filename.substr(0, filename.lastIndexOf('.')) + '.' + task.type;
       var pdfPath = path.join(tmpDir, pdfFilename);
-      fs.rename(pdfPath, task.destFile, callback);
+      fs.rename(pdfPath, task.destFile, function(err){callback()});
     }
   ], function(err) {
     // Invoke the callback for the local queue

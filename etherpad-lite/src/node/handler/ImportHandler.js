@@ -35,8 +35,8 @@ var ERR = require("async-stacktrace")
   , hooks = require("ep_etherpad-lite/static/js/pluginfw/hooks.js");
 
 //load abiword only if its enabled
-if(settings.abiword != null)
-  var abiword = require("../utils/Abiword");
+if(settings.soffice != null)
+  var abiword = require("../utils/LibreOffice");
 
 //for node 0.6 compatibily, os.tmpDir() only works from 0.8
 var tmpDirectory = process.env.TEMP || process.env.TMPDIR || process.env.TMP || '/tmp';
