@@ -284,7 +284,11 @@ function handshake()
       $("body").addClass(clientVars.readonly ? "readonly" : "readwrite")
 
       padeditor.ace.callWithAce(function (ace) {
-        ace.ace_setEditable(!clientVars.readonly);
+        if(screen.width > 575) {
+            ace.ace_setEditable(!clientVars.readonly);
+        }else{
+            ace.ace_setEditable(clientVars.readonly);
+        }
       });
 
       // If the LineNumbersDisabled value is set to true then we need to hide the Line Numbers

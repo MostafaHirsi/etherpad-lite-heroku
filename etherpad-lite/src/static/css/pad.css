@@ -45,7 +45,7 @@ a img {
 }
 /* menu */
 .toolbar {
-    background: #f7f7f7;
+   /* background: #f7f7f7;
     background: -webkit-linear-gradient(#f7f7f7, #f1f1f1 80%);
     background: -moz-linear-gradient(#f7f7f7, #f1f1f1 80%);
     background: -o-linear-gradient(#f7f7f7, #f1f1f1 80%);
@@ -56,18 +56,18 @@ a img {
     padding-top: 4px;
     width: 100%;
     white-space: nowrap;
-    height: 32px;
+    height: 32px;*/
 }
 .toolbar ul {
-    position: absolute;
+    /*position: absolute;
     list-style: none;
     padding-right: 3px;
-    padding-left: 1px;
+    padding-left: 1px;*/
     z-index: 2;
-    overflow: hidden;
-    float: left
+    /*overflow: hidden;*/
+    /*float: left*/
 }
-.toolbar ul li {
+/*.toolbar ul li {
     float: left;
     margin-left: 2px;
     height:32px;
@@ -151,7 +151,7 @@ a img {
 }
 
 .buttontext:focus{
-    /* Not sure why important is required here but it is */
+    !* Not sure why important is required here but it is *!
     border: 1px solid #666 !important;
 }
 
@@ -179,20 +179,20 @@ a img {
 .toolbar ul li select {
     background: #fff;
     padding: 4px;
-    line-height: 22px; /* fix for safari (win/mac) */
-    height: 28px; /* fix for chrome (mac) */
+    line-height: 22px; !* fix for safari (win/mac) *!
+    height: 28px; !* fix for chrome (mac) *!
     border-radius: 3px;
     border: 1px solid #ccc;
     outline: none;
 }
 .toolbar ul.menu_left {
-    left:0px;
-    right:250px;
+   !* left:0px;
+    right:250px;*!
 }
 
 .toolbar ul.menu_right {
-    right:0px;
-}
+    !*right:0px;*!
+}*/
 
 li[data-key=showusers] > a {
     min-width: 30px;
