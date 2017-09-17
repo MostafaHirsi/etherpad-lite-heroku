@@ -45,12 +45,12 @@
                  },
 
   /* An Example of MySQL Configuration
-   "dbType" : "mysql",
+   "dbType" : "postgres",
    "dbSettings" : {
-                    "user"    : "root",
-                    "host"    : "localhost",
-                    "password": "",
-                    "database": "store",
+                    "user"    : "ec2-54-247-99-159.eu-west-1.compute.amazonaws.com",
+                    "host"    : "jntqctznnicafo",
+                    "password": "xzy007suv5sG-cpoOBNBLlIYBh",
+                    "database": "d6ovmkpsds9ucf",
                     "charset" : "utf8mb4"
                   },
   */
