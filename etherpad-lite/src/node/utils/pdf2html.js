@@ -56,10 +56,7 @@ function doConvertTask(task, callback) {
 //      ]);
 
 
-       var soffice = spawn("/usr/bin/pandoc",[task.srcFile,"-s","-o",task.destFile]);
-
-
-console.log(task);
+       var soffice = spawn("/usr/bin/pdf2htmlEX",[task.srcFile,"test.html"]);
 
       var stdoutBuffer = '';
 
@@ -85,10 +82,12 @@ console.log(task);
 
     // Move the PDF file to the correct place
     function(callback) {
-      var filename = path.basename(task.srcFile);
-      var pdfFilename = filename.substr(0, filename.lastIndexOf('.')) + '.' + task.type;
-      var pdfPath = path.join(tmpDir, pdfFilename);
-      fs.rename(pdfPath, task.destFile, function(err){callback()});
+     fs.rename("test.html",task.destFile,function(err){
+        var filename = path.basename(task.srcFile);
+        var pdfFilename = filename.substr(0, filename.lastIndexOf('.')) + '.' + task.type;
+        var pdfPath = path.join(tmpDir, pdfFilename);
+        fs.rename(pdfPath, task.destFile, function(err){callback()});
+      });
     }
   ], function(err) {
     // Invoke the callback for the local queue

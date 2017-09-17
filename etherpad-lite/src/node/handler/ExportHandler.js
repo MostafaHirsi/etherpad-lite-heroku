@@ -58,6 +58,11 @@ exports.doExport = function(req, res, padId, type)
 {
   var fileName = padId;
 
+
+  if(type=="doc"){
+   type="docx";
+  }
+
   // allow fileName to be overwritten by a hook, the type type is kept static for security reasons
   hooks.aCallFirst("exportFileName", padId,
     function(err, hookFileName){

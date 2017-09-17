@@ -1,3 +1,4 @@
+
 /**
  * Handles the import requests
  */
@@ -35,8 +36,8 @@ var ERR = require("async-stacktrace")
   , hooks = require("ep_etherpad-lite/static/js/pluginfw/hooks.js");
 
 //load abiword only if its enabled
-if(settings.abiword != null)
-  var abiword = require("../utils/Abiword");
+if(settings.soffice != null)
+  var abiword = require("../utils/LibreOffice");
 
 //for node 0.6 compatibily, os.tmpDir() only works from 0.8
 var tmpDirectory = process.env.TEMP || process.env.TMPDIR || process.env.TMP || '/tmp';
@@ -149,7 +150,10 @@ exports.doImport = function(req, res, padId)
         var fileIsTXT = (fileEnding === ".txt");
         if (fileIsTXT) abiword = false; // Don't use abiword for text files
         // See https://github.com/ether/etherpad-lite/issues/2572
-        if (abiword && !fileIsHTML) {
+        if(fileEnding==".pdf"){
+	 abiword = require("../utils/pdf2html");
+        }
+	if (abiword && !fileIsHTML) {
           abiword.convertFile(srcFile, destFile, "htm", function(err) {
             //catch convert errors
             if(err) {
