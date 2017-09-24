@@ -45,6 +45,19 @@
   "dbSettings" : {
                    "filename" : "var/dirty.db"
                  },
+//
+//   	"dbType" : "postgres",
+// 	"dbSettings" : {
+//   	"user"    : "joryandhjhqkjf",
+//   	"host"    : "ec2-54-75-231-85.eu-west-1.compute.amazonaws.com",
+//   	"password": "xzy007suv5sG-cpoOBNBLlIYBh",
+//   	"database": "depl3kirtvsrsg",
+//   	"port" : "5432",
+//   	"charset" : "utf8mb4",
+//   	"SSL" : true,
+//   	"dbname": "depl3kirtvsrsg"
+//    },
+
 
   //the default text of a pad
   "defaultPadText" : "Welcome to Etherpad!\n\nThis pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!\n\nGet involved with Etherpad at http:\/\/etherpad.org\n",

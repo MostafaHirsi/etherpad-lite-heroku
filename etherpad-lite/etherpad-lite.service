@@ -1,0 +1,12 @@
+[Unit]
+Description=etherpad-lite (real-time collaborative document editing)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=etherpad-lite
+Group=etherpad-lite
+ExecStart=/root/etherpad-lite-heroku/etherpad-lite/bin/run.sh
+
+[Install]
+WantedBy=multi-user.target
