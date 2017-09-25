@@ -20,7 +20,7 @@ settings = {
   requireSession: true,
   title: '',
 }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
-settings.port = ENV[PORT]
+settings['port'] = ENV['$PORT']
 # Write the settings hash out as JSON.
 File.open('./etherpad-lite/settings.json', 'w') { |f| f.write(settings.to_json) }
 
@@ -31,6 +31,8 @@ etherpad_api_key = ENV['ETHERPAD_API_KEY'];
 unless etherpad_api_key.nil?
   File.open('./etherpad-lite/APIKEY.txt', 'w') { |f| f.write( etherpad_api_key ) } 
 end
+puts ENV['DATABASE_URL']
+puts ENV['PORT']
 
 `./installPackages.sh`
 

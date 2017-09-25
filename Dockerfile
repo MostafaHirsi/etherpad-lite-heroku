@@ -11,11 +11,12 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   python \
   ruby \
-  supervisor \
   Libreoffice \
   pandoc \
-
   && rm -rf /var/lib/apt/lists/*
+
+RUN wget http://binaries.html-tidy.org/binaries/tidy-5.2.0/tidy-5.2.0-64bit.deb
+sudo dpkg -i tidy-5.2.0-64bit.deb
 
 
 # Add our code
@@ -26,11 +27,22 @@ WORKDIR /opt/etherpad
 
 # Expose is NOT supported by Heroku # EXPOSE 5000 		
 
+
 # Run the image as a non-root user
-RUN adduser -D myuser
+RUN useradd -m myuser
 USER myuser
+
+
+RUN ls
+RUN which pandoc
+RUN pwd
+RUN echo DATABASE_URL
+RUN echo PORT
+RUN which libreoffice
+RUN which tidy
 
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
-ENV PORT $PORT
-RUN exec preparse.rb
+
+ 
+CMD exec ./preparse.rb
