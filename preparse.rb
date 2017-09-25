@@ -20,7 +20,7 @@ settings = {
   requireSession: true,
   title: '',
 }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
-settings.port = ENV[$PORT]
+settings.port = ENV[PORT]
 # Write the settings hash out as JSON.
 File.open('./etherpad-lite/settings.json', 'w') { |f| f.write(settings.to_json) }
 

@@ -32,5 +32,5 @@ USER myuser
 
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
-export $PORT=$PORT
+ENV PORT $PORT
 RUN exec preparse.rb
