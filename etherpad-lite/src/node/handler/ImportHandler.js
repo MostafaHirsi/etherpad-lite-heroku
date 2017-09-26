@@ -151,9 +151,11 @@ exports.doImport = function(req, res, padId)
         if (fileIsTXT) abiword = false; // Don't use abiword for text files
         // See https://github.com/ether/etherpad-lite/issues/2572
         if(fileEnding==".pdf"){
-	 abiword = require("../utils/pdf2html");
+          abiword = require("../utils/pdf2html");
+        }else{
+          abiword = require("../utils/LibreOffice");
         }
-	if (abiword && !fileIsHTML) {
+        if (abiword && !fileIsHTML) {
           abiword.convertFile(srcFile, destFile, "htm", function(err) {
             //catch convert errors
             if(err) {

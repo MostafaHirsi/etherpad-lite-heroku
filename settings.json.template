@@ -57,6 +57,10 @@
   /* This is the path to the Abiword executable. Setting it to null, disables abiword.
      Abiword is needed to advanced import/export features of pads*/  
   "abiword" : null,
+
+  "soffice" : "/usr/bin/libreoffice",
+  "tidyHtml" : "/usr/bin/tidy",
+
  
   /* This setting is used if you require authentication of all users.
      Note: /admin always requires authentication. */
@@ -73,7 +77,7 @@
   
   /* Users for basic authentication. is_admin = true gives access to /admin.
      If you do not uncomment this, /admin will not be available! */
-  /*
+  
   "users": {
     "admin": {
       "password": "changeme1",
@@ -84,7 +88,7 @@
       "is_admin": false
     }
   },
-  */
+  
 
   // restrict socket.io transport methods
   "socketTransportProtocols" : ["xhr-polling", "jsonp-polling", "htmlfile"],

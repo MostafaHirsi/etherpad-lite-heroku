@@ -40,7 +40,7 @@ exports.convertFile = function(srcFile, destFile, type, callback) {
 
 function doConvertTask(task, callback) {
   var tmpDir = os.tmpdir();
-
+console.log(task);
   async.series([
     // Generate a PDF file with LibreOffice
     function(callback) {
@@ -56,10 +56,12 @@ function doConvertTask(task, callback) {
 //      ]);
 
 
-       var soffice = spawn("/usr/bin/pandoc",[task.srcFile,"-s","-o",task.destFile]);
+// var task1 = spawn("/usr/bin/pandoc",[task.srcFile,"-s","-o",task.destFile],);
+//   // var task0 = spawn();
+
+var soffice = spawn("/usr/bin/pandoc",[task.srcFile,"-s","-o",task.destFile]);
 
 
-console.log(task);
 
       var stdoutBuffer = '';
 
@@ -76,7 +78,7 @@ console.log(task);
       // Throw an exception if libreoffice failed
       soffice.on('exit', function(code) {
         if (code != 0) {
-          return callback("LibreOffice died with exit code " + code + " and message: " + stdoutBuffer);
+          return callback("Pandoc died with exit code " + code + " and message: " + stdoutBuffer);
         }
 
         callback();

@@ -73,7 +73,7 @@ function doConvertTask(task, callback) {
       // Throw an exception if libreoffice failed
       soffice.on('exit', function(code) {
         if (code != 0) {
-          return callback("LibreOffice died with exit code " + code + " and message: " + stdoutBuffer);
+          return callback("Pandoc died with exit code " + code + " and message: " + stdoutBuffer);
         }
 
         callback();
@@ -82,12 +82,23 @@ function doConvertTask(task, callback) {
 
     // Move the PDF file to the correct place
     function(callback) {
-     fs.rename("test.html",task.destFile,function(err){
-        var filename = path.basename(task.srcFile);
-        var pdfFilename = filename.substr(0, filename.lastIndexOf('.')) + '.' + task.type;
-        var pdfPath = path.join(tmpDir, pdfFilename);
-        fs.rename(pdfPath, task.destFile, function(err){callback()});
-      });
+      fs.createReadStream('test.html').pipe(fs.createWriteStream(task.destFile));
+         
+      var filename = path.basename(task.srcFile);
+      var pdfFilename = filename.substr(0, filename.lastIndexOf('.')) + '.' + task.type;
+      var pdfPath = path.join(tmpDir, pdfFilename);
+
+      if(fs.existsSync(task.destFile)){
+        console.log("task.destFile success");
+      }
+
+      if(fs.existsSync(pdfPath)){
+        console.log("pdfPath success");
+      }
+      console.log('%%%%%%');
+
+      fs.rename(pdfPath, task.destFile, function(err){callback()});
+      
     }
   ], function(err) {
     // Invoke the callback for the local queue

@@ -4,23 +4,54 @@ require 'json'
 require 'uri'
 
 # Create settings hash add merge in the user-provided JSON.
+
 database_uri = URI.parse(ENV['DATABASE_URL'])
+# settings = {
+#   dbType: database_uri.scheme,
+#   dbSettings: {
+#     user: database_uri.user,
+#     host: database_uri.host,
+#     port: database_uri.port,
+#     password: database_uri.password,
+#     database: database_uri.path.sub(%r{^/}, ''),
+#     dbname: database_uri.path.sub(%r{^/}, '')
+#   },
+#   defaultPadText: '',
+#   editOnly: true,
+#   requireSession: true,
+#   title: '',
+# }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
+
 settings = {
-  dbType: database_uri.scheme,
+  dbType: "postgres",
   dbSettings: {
-    user: database_uri.user,
-    host: database_uri.host,
-    port: database_uri.port,
-    password: database_uri.password,
-    database: database_uri.path.sub(%r{^/}, ''),
-    dbname: database_uri.path.sub(%r{^/}, '')
+    user: "jntqctznnicafo",
+    host: "ec2-54-247-99-159.eu-west-1.compute.amazonaws.com",
+    port: "5432",
+    password: "xzy007suv5sG-cpoOBNBLlIYBh",
+    database: "d6ovmkpsds9ucf",
+    dbname: "d6ovmkpsds9ucf",
+    charset: "utf8mb4"
   },
   defaultPadText: '',
   editOnly: true,
   requireSession: true,
   title: '',
 }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
-settings['port'] = ENV['$PORT']
+
+
+# settings = {
+#   dbType: "dirty",
+#   dbSettings: {filename: "var/dirty.db"},
+#   defaultPadText: '',
+#   editOnly: true,
+#   requireSession: true,
+#   title: '',
+# }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
+
+
+
+settings['port'] = ENV['PORT']
 # Write the settings hash out as JSON.
 File.open('./etherpad-lite/settings.json', 'w') { |f| f.write(settings.to_json) }
 
@@ -31,8 +62,7 @@ etherpad_api_key = ENV['ETHERPAD_API_KEY'];
 unless etherpad_api_key.nil?
   File.open('./etherpad-lite/APIKEY.txt', 'w') { |f| f.write( etherpad_api_key ) } 
 end
-puts ENV['DATABASE_URL']
-puts ENV['PORT']
+
 
 `./installPackages.sh`
 
