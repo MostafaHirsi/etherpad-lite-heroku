@@ -2,127 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3481e1ea-7eaa-4859-9caa-1e493a591613" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/etherpad_lite_heroku_node_modules.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/dezalgo/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/dezalgo/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/dezalgo/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/dezalgo/dezalgo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/dezalgo/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/dezalgo/test/basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/test/basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/test/chown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/test/rename-fail.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/test/slow-close.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/fs-write-stream-atomic/test/toolong.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/README.markdown" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/test/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/path-is-absolute/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/path-is-absolute/license" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/path-is-absolute/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/init-package-json/node_modules/glob/node_modules/path-is-absolute/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/normalize-git-url.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/normalize-git-url/test/basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/test/check-engine.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/test/check-git.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-install-checks/test/check-platform.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/float.patch" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/lib/util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/component.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/History.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/browser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream/node_modules/readable-stream/node_modules/util-deprecate/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/README.markdown" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/example/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map/test/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/path-is-absolute/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/path-is-absolute/license" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/path-is-absolute/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/read-package-json/node_modules/glob/node_modules/path-is-absolute/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/core-util-is/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/core-util-is/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/core-util-is/float.patch" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/core-util-is/lib/util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/core-util-is/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/core-util-is/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/string_decoder/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/string_decoder/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/string_decoder/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/string_decoder/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/readable-stream/node_modules/string_decoder/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/test/basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/test/npa-basic.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/test/npa-bitbucket.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/test/npa-github.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/test/npa-gitlab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/realize-package-specifier/test/npa-windows.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/unique-filename/node_modules/unique-slug/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/unique-filename/node_modules/unique-slug/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/unique-filename/node_modules/unique-slug/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/unique-filename/node_modules/unique-slug/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/unique-filename/node_modules/unique-slug/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/unique-filename/node_modules/unique-slug/test/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/node_modules/spdx-license-ids/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/node_modules/spdx-license-ids/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/node_modules/spdx-license-ids/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/etherpad-lite/src/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/node_modules/spdx-license-ids/spdx-license-ids.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/etherpad-lite-heroku.iml" afterPath="$PROJECT_DIR$/.idea/etherpad-lite-heroku.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etherpad-lite/settings.json" afterPath="$PROJECT_DIR$/etherpad-lite/settings.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.css" afterPath="$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.js" afterPath="$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etherpad-lite/var/dirty.db" afterPath="$PROJECT_DIR$/etherpad-lite/var/dirty.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preparse.rb" afterPath="$PROJECT_DIR$/preparse.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -147,8 +29,8 @@
       <file leaf-file-name="pad.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+            <state relative-caret-position="-115">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -157,18 +39,8 @@
       <file leaf-file-name="pad.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="9" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="APIKEY.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/etherpad-lite/APIKEY.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="64" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
+            <state relative-caret-position="280">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -510,16 +382,16 @@
       <workItem from="1505485694907" duration="50000" />
       <workItem from="1505658093078" duration="644000" />
       <workItem from="1505658842461" duration="6086000" />
-      <workItem from="1510502478364" duration="6582000" />
+      <workItem from="1510502478364" duration="7117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26185000" />
+    <option name="totallyTimeSpent" value="26720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28541338" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -527,7 +399,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27738515" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27738515" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -730,14 +602,6 @@
     <entry file="file://$PROJECT_DIR$/etherpad-lite/node_modules/ep_etherpad-lite/static/custom/pad.css" />
     <entry file="file://$PROJECT_DIR$/etherpad-lite/node_modules/ep_etherpad-lite/static/css/pad.css" />
     <entry file="file://$PROJECT_DIR$/etherpad-lite/node_modules/ep_page_view/templates/page_view_entry.ejs" />
-    <entry file="file://$PROJECT_DIR$/etherpad-lite/APIKEY.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="64" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etherpad-lite/node_modules/ep_page_view/static/css/page_view.css" />
     <entry file="file://$PROJECT_DIR$/etherpad-lite/node_modules/ep_thumbnails/index.js" />
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -838,18 +702,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/etherpad-lite/APIKEY.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="64" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="9" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="280">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/etherpad-lite/src/static/custom/pad.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+        <state relative-caret-position="-115">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding />
         </state>
       </provider>
