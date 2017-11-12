@@ -44,12 +44,36 @@ button {
 {
     background: none;
     border: none !important;
+    width: 45px !important;
+    height: 45px !important;
+    color: white !important;
 }
 
+/*style for the comments plugin.!*/
 .buttonicon {
     width: 45px !important;
     height: 45px !important;
     color: white !important;
+}
+
+.commenticon{
+    width: 100px;
+    height:100px;
+    padding: 10px 15px;
+
+}
+
+
+.commenticon:before{
+    width: 100px;
+    height:100px;
+    margin: auto !important;
+    padding: auto !important;
+
+    display: inline-block !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
 }
 
 .separator {
