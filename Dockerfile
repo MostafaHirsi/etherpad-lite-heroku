@@ -26,7 +26,6 @@ RUN apt-get install -f
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash
 RUN apt-get install -y nodejs
 
-
 # Add our code
 ADD ./etherpad-lite /opt/etherpad/etherpad-lite/
 ADD ./installPackages.sh /opt/etherpad/
