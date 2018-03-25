@@ -86,6 +86,7 @@ button {
     display: list-item !important;
     padding: 12px !important;
     margin-right: 10px !important;
+    width : 80px;
 }
 
 .ep_font_size {
@@ -313,4 +314,32 @@ nav {
 
 .navbar-collapse {
     overflow-x: scroll;
+}
+
+.font-family-icon
+{
+    display: none;
+}
+
+.font-color-icon
+{
+    display: none;
+}
+
+#font-family
+{
+    display: list-item !important;
+}
+/*:first-child*/
+#sidedivinner > div
+{
+    height: 16px !important;
+}
+
+#editbar > div {
+    overflow: hidden;
+}
+
+#helpbubbleslink > span {
+    padding: 12px;
 }
