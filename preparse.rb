@@ -22,31 +22,31 @@ require 'uri'
 #   title: '',
 # }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
 
-#settings = {
-#  dbType: "postgres",
-#  dbSettings: {
-#    user: "jntqctznnicafo",
-#    host: "ec2-54-247-99-159.eu-west-1.compute.amazonaws.com",
-#    port: "5432",
-#    password: "xzy007suv5sG-cpoOBNBLlIYBh",
-#    database: "d6ovmkpsds9ucf",
-#    dbname: "d6ovmkpsds9ucf",
-#    charset: "utf8mb4"
-#  },
-#  defaultPadText: '',
-#  editOnly: true,
-#  requireSession: true,
-#  title: '',
-#}.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
+settings = {
+  dbType: "postgres",
+  dbSettings: {
+    user: "jntqctznnicafo",
+    host: "ec2-54-247-99-159.eu-west-1.compute.amazonaws.com",
+    port: "5432",
+    password: "xzy007suv5sG-cpoOBNBLlIYBh",
+    database: "d6ovmkpsds9ucf",
+    dbname: "d6ovmkpsds9ucf",
+    charset: "utf8mb4"
+  },
+  defaultPadText: '',
+  editOnly: true,
+  requireSession: true,
+  title: '',
+}.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
 
- settings = {
-   dbType: "dirty",
-   dbSettings: {filename: "var/dirty.db"},
-   defaultPadText: '',
-   editOnly: true,
-   requireSession: true,
-   title: '',
- }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
+# settings = {
+#   dbType: "dirty",
+#   dbSettings: {filename: "var/dirty.db"},
+#   defaultPadText: '',
+#   editOnly: true,
+#   requireSession: true,
+#   title: '',
+# }.merge(JSON.parse(File.read(ENV.fetch('ETHERPAD_SETTINGS'))))
 
 settings['port'] = ENV['PORT']
 # Write the settings hash out as JSON.
